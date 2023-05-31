@@ -1,0 +1,67 @@
+.drop-down {
+    display: flex;
+}
+
+.dropDownDiv {
+    position: relative;
+    display: inline-block;
+}
+
+.dropBtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+/* Dropdown Content (Hidden by Default) */
+.dropDownContent {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropDownContent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+/* Change color of dropdown links on hover */
+.dropDownContent a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropDownDiv:hover .dropDownContent {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropDownDiv:hover .dropBtn {background-color: #3e8e41;}
+
+/* carousel */
+.carouselDiv {
+    position: relative;
+}
+
+.prevBtn {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+}
+
+.nextBtn {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+}
+
+.imgContainer {
+    display: flex;
+}
+
+.indicatorDiv {
+    display: flex;
+}
