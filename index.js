@@ -62,7 +62,7 @@ const RenderDropDown = () => {
     drop.appendChild(webs);
 };
 
-const Carousel = () => {
+const RenderCarousel = () => {
     const imgSlider = document.querySelector('.img-slider');
     const carouselDiv = document.createElement('div');
     carouselDiv.innerHTML = `
@@ -76,11 +76,19 @@ const Carousel = () => {
             <div class="imgDiv" data-slide="2">
                 <img class="img" src="c.jpeg" alt="Kid" width="100%" height="100%">
             </div>
+            <div class="imgDiv" data-slide="3">
+                <img class="img" src="d.jpeg" alt="Kid" width="100%" height="100%">
+            </div>
+            <div class="imgDiv" data-slide="4">
+                <img class="img" src="e.jpeg" alt="Kid" width="100%" height="100%">
+            </div>
         </div>
         <div class="indicatorDiv">
             <img class="indicator" data-slide="0" src="minus.png" alt="Indicator">
             <img class="indicator" data-slide="1" src="minus.png" alt="Indicator">
             <img class="indicator" data-slide="2" src="minus.png" alt="Indicator">
+            <img class="indicator" data-slide="3" src="minus.png" alt="Indicator">
+            <img class="indicator" data-slide="4" src="minus.png" alt="Indicator">
         </div>
         <button class="prevBtn">
             <img class="prevImg" src="left-arrow.png" alt="Previous">
@@ -94,5 +102,30 @@ const Carousel = () => {
     imgSlider.appendChild(carouselDiv);
 }; 
 
+const NextEvent = () => {
+    const nextBtn = document.querySelector('.nextBtn');
+    const slides = document.querySelectorAll('.imgDiv');
+    const slidesQty = slides.length;
+    
+    nextBtn.addEventListener('click', () => {
+        const activeImg = document.querySelector('.active');
+        let activeSlide = activeImg.getAttribute('data-slide');
+        // Move activeSlide number to the next one
+        if (activeSlide < slidesQty - 1) activeSlide++;
+        else activeSlide = 0;
+        // Get updated activeImg
+        const updatedActiveImg = document.querySelector(`div[data-slide="${activeSlide}"]`);
+        // Remove active class from current image and add it to the next image
+        activeImg.classList.remove('active');
+        updatedActiveImg.classList.add('active');
+    });
+};
+
+const CarouselEvents = () => {
+    NextEvent();
+};
+
 RenderDropDown();
-Carousel();
+RenderCarousel();
+
+CarouselEvents();
