@@ -121,8 +121,28 @@ const NextEvent = () => {
     });
 };
 
+const PrevEvent = () => {
+    const prevBtn = document.querySelector('.prevBtn');
+    const slides = document.querySelectorAll('.imgDiv');
+    const slidesQty = slides.length;
+    
+    prevBtn.addEventListener('click', () => {
+        const activeImg = document.querySelector('.active');
+        let activeSlide = activeImg.getAttribute('data-slide');
+        // Move activeSlide number to the next one
+        if (activeSlide > 0) activeSlide--;
+        else activeSlide = slidesQty - 1;
+        // Get updated activeImg
+        const updatedActiveImg = document.querySelector(`div[data-slide="${activeSlide}"]`);
+        // Remove active class from current image and add it to the next image
+        activeImg.classList.remove('active');
+        updatedActiveImg.classList.add('active');
+    });
+};
+
 const CarouselEvents = () => {
     NextEvent();
+    PrevEvent();
 };
 
 RenderDropDown();
