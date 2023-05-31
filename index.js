@@ -65,16 +65,16 @@ const RenderDropDown = () => {
 const Carousel = () => {
     const imgSlider = document.querySelector('.img-slider');
     const carouselDiv = document.createElement('div');
-    carouselDiv.textContent = `
+    carouselDiv.innerHTML = `
         <div class="imgContainer">
             <div class="imgDiv active" data-slide="0">
-                <img class="img" src="a.jpb" alt="Kid">
+                <img class="img" src="a.jpg" alt="Kid" width="100%" height="100%">
             </div>
-            <div class="imgDiv active" data-slide="1">
-                <img class="img" src="b.jpeg" alt="Kid">
+            <div class="imgDiv" data-slide="1">
+                <img class="img" src="b.jpeg" alt="Kid" width="100%" height="100%">
             </div>
-            <div class="imgDiv active" data-slide="2">
-                <img class="img" src="c.jpeg" alt="Kid">
+            <div class="imgDiv" data-slide="2">
+                <img class="img" src="c.jpeg" alt="Kid" width="100%" height="100%">
             </div>
         </div>
         <div class="indicatorDiv">
@@ -95,3 +95,4 @@ const Carousel = () => {
 }; 
 
 RenderDropDown();
+Carousel();

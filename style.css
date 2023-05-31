@@ -42,9 +42,25 @@
 .dropDownDiv:hover .dropBtn {background-color: #3e8e41;}
 
 /* carousel */
+
 .carouselDiv {
     position: relative;
+    width: 50vw;
+    height: 50vh;
 }
+
+.prevBtn,
+.nextBtn {
+    border: none;
+    background-color: transparent;
+    opacity: 0.4;
+}
+
+.prevBtn:hover,
+.nextBtn:hover {
+    opacity: 1;
+    cursor: pointer;
+} 
 
 .prevBtn {
     position: absolute;
@@ -60,8 +76,34 @@
 
 .imgContainer {
     display: flex;
+    
+}
+
+.imgDiv {
+    display: none;
+    width: 50vw;
+    height: 50vh;
+}
+
+.active {
+    display: block;
 }
 
 .indicatorDiv {
     display: flex;
+    position: absolute;
+    bottom: 2%;
+    left: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.indicator {
+    opacity: 0.4;
+}
+
+.indicator:hover {
+    cursor: pointer;
+    opacity: 1;
 }
