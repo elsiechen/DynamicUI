@@ -1,4 +1,3 @@
-// import { RenderDropDown } from "./drop-down";
 const mobile = document.querySelector('.mobile');
 
 // {href: '', name: ''},{href: '', name: ''}
@@ -133,22 +132,7 @@ const IndicatorEvent = () => {
 
 const NextEvent = () => {
     const nextBtn = document.querySelector('.nextBtn');
-    const slides = document.querySelectorAll('.imgDiv');
-    const slidesQty = slides.length;
-    
-    nextBtn.addEventListener('click', () => {
-        const activeImg = document.querySelector('.active');
-        let activeSlide = activeImg.getAttribute('data-slide');
-        // Move activeSlide number to the next one
-        if (activeSlide < slidesQty - 1) activeSlide++;
-        else activeSlide = 0;
-        // Get updated activeImg
-        const updatedActiveImg = document.querySelector(`div[data-slide="${activeSlide}"]`);
-        // Remove active class from current image and add it to the next image
-        activeImg.classList.remove('active');
-        updatedActiveImg.classList.add('active');
-        ShowIndicator();
-    });
+    nextBtn.addEventListener('click', AdvanceSlide);
 };
 
 const PrevEvent = () => {
@@ -171,11 +155,21 @@ const PrevEvent = () => {
     });
 };
 
-// const ShowSlide = index => {
-//     const slides = document.querySelectorAll('.imgDiv');
-//     let currentIndex = 
-//     slides
-// };
+const AdvanceSlide = () => {
+    const slides = document.querySelectorAll('.imgDiv');
+    const slidesQty = slides.length;
+    const activeImg = document.querySelector('.active');
+    let activeSlide = activeImg.getAttribute('data-slide');
+    // Move activeSlide number to the next one
+    if (activeSlide < slidesQty - 1) activeSlide++;
+    else activeSlide = 0;
+    // Get updated activeImg
+    const updatedActiveImg = document.querySelector(`div[data-slide="${activeSlide}"]`);
+    // Remove active class from current image and add it to the next image
+    activeImg.classList.remove('active');
+    updatedActiveImg.classList.add('active');
+    ShowIndicator();
+};
 
 const CarouselEvents = () => {
     NextEvent();
@@ -187,3 +181,4 @@ RenderDropDown();
 
 RenderCarousel();
 CarouselEvents();
+setInterval(AdvanceSlide, 5000);
