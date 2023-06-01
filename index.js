@@ -103,20 +103,32 @@ const RenderCarousel = () => {
     ShowIndicator();
 }; 
 
-
 const ShowIndicator = () => {
     const activeImg = document.querySelector('.active');
     const activeSlide = activeImg.getAttribute('data-slide');
     const indicators = document.querySelectorAll('.indicator');
     const activeIndicator = document.querySelector(`img[data-slide="${activeSlide}"]`);
-    console.log(activeSlide)
-    console.log(activeIndicator)
     // Remove active-indicator class from all indicators , and add 
     indicators.forEach(indicator => {
         if (indicator.classList.contains('active-indicator')) indicator.classList.remove('active-indicator');
     });
     // active-indicator class to activeIndicator
     activeIndicator.classList.add('active-indicator');
+};
+
+const IndicatorEvent = () => {
+    const indicators = document.querySelectorAll('.indicator');
+    indicators.forEach(indicator => {
+        indicator.addEventListener('click', () => {
+            const currentActiveImg = document.querySelector('.active');
+            const clickedSlide = indicator.getAttribute('data-slide');
+            const clickedImg = document.querySelector(`div[data-slide="${clickedSlide}"]`);
+            // Remove active class from currentActiveImg and add it to newly clicked img
+            currentActiveImg.classList.remove('active');
+            clickedImg.classList.add('active');
+            ShowIndicator();
+        });
+    });
 };
 
 const NextEvent = () => {
@@ -168,9 +180,10 @@ const PrevEvent = () => {
 const CarouselEvents = () => {
     NextEvent();
     PrevEvent();
+    IndicatorEvent();
 };
 
 RenderDropDown();
-RenderCarousel();
 
+RenderCarousel();
 CarouselEvents();
