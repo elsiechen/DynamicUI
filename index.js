@@ -102,6 +102,7 @@ const RenderCarousel = () => {
     imgSlider.appendChild(carouselDiv);
 }; 
 
+
 const NextEvent = () => {
     const nextBtn = document.querySelector('.nextBtn');
     const slides = document.querySelectorAll('.imgDiv');
@@ -139,6 +140,12 @@ const PrevEvent = () => {
         updatedActiveImg.classList.add('active');
     });
 };
+
+// const ShowSlide = index => {
+//     const slides = document.querySelectorAll('.imgDiv');
+//     let currentIndex = 
+//     slides
+// };
 
 const CarouselEvents = () => {
     NextEvent();
