@@ -100,8 +100,24 @@ const RenderCarousel = () => {
 
     carouselDiv.classList.add('carouselDiv');
     imgSlider.appendChild(carouselDiv);
+    ShowIndicator();
 }; 
 
+
+const ShowIndicator = () => {
+    const activeImg = document.querySelector('.active');
+    const activeSlide = activeImg.getAttribute('data-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    const activeIndicator = document.querySelector(`img[data-slide="${activeSlide}"]`);
+    console.log(activeSlide)
+    console.log(activeIndicator)
+    // Remove active-indicator class from all indicators , and add 
+    indicators.forEach(indicator => {
+        if (indicator.classList.contains('active-indicator')) indicator.classList.remove('active-indicator');
+    });
+    // active-indicator class to activeIndicator
+    activeIndicator.classList.add('active-indicator');
+};
 
 const NextEvent = () => {
     const nextBtn = document.querySelector('.nextBtn');
@@ -119,6 +135,7 @@ const NextEvent = () => {
         // Remove active class from current image and add it to the next image
         activeImg.classList.remove('active');
         updatedActiveImg.classList.add('active');
+        ShowIndicator();
     });
 };
 
@@ -138,6 +155,7 @@ const PrevEvent = () => {
         // Remove active class from current image and add it to the next image
         activeImg.classList.remove('active');
         updatedActiveImg.classList.add('active');
+        ShowIndicator();
     });
 };
 

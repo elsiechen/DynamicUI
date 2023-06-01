@@ -113,7 +113,7 @@
     opacity: 0.4;
 }
 
-.indicator:hover {
+.active-indicator {
     cursor: pointer;
     opacity: 1;
 }
