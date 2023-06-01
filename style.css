@@ -76,17 +76,27 @@
 
 .imgContainer {
     display: flex;
-    
+    /* width: 100%; */
+    /* overflow: hidden; */
+    position: relative;
 }
 
 .imgDiv {
-    display: none;
+    /* display: none;
+    width: 50vw;
+    height: 50vh; */
     width: 50vw;
     height: 50vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .active {
-    display: block;
+    /* display: block; */
+    opacity: 1;
 }
 
 .indicatorDiv {
